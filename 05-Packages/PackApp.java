@@ -2,9 +2,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 import figures.Rect;
 import figures.Ellipse;
-
+import figures.Circle;
 class PackApp {
     public static void main (String[] args) {
         PackFrame frame = new PackFrame();
@@ -13,8 +14,9 @@ class PackApp {
 }
 
 class PackFrame extends JFrame {
-    Rect r1,r2,r3;
-    Ellipse e1,e2,e3;
+    Rect r1;
+    Ellipse e1;
+    Circle c1;
     PackFrame () {
         this.addWindowListener (
             new WindowAdapter() {
@@ -26,23 +28,18 @@ class PackFrame extends JFrame {
         this.setTitle("Java Packages");
         this.setSize(350, 350);
         
-        this.r1 = new Rect(50,50, 50,50,Color.blue,Color.black);
-        this.r2 = new Rect(110,50, 50,30,Color.black,Color.pink);
-        this.r3 = new Rect(210,50, 50,30,new Color(153, 255, 204),Color.red);
+        this.r1 = new Rect(210,50, 50,30,new Color(153, 255, 204),Color.red);
 
-        this.e1 = new Ellipse(50,300, 50,30,Color.red,Color.green);
-        this.e2 = new Ellipse(110,300, 50,30,Color.blue,Color.orange);
-        this.e3 = new Ellipse(150,150, 100,30,Color.red,Color.blue);
+        this.e1 = new Ellipse(50,50, 50,30,Color.red,Color.green);
+        
+        this.c1 = new Circle(300,50,40,Color.green,Color.blue);
+        
     }
 
     public void paint (Graphics g) {
         super.paint(g);
         this.r1.paint(g);
-        this.r2.paint(g);
-        this.r3.paint(g);
-  
-        this.e2.paint(g);
         this.e1.paint(g);
-        this.e3.paint(g);
+        this.c1.paint(g);
     }
 }
